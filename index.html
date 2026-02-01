@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cultura e Historia del Ecuador</title>
+    <link rel= "shortcut icon" href="img/Logo.png">
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f4f4f4 0%, #e0e0e0 100%);
+            color: #333;
+            animation: fadeIn 1s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        header {
+            display: flex;
+            flex-direction: column;
+            height: 180px;
+            position: relative;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .franja-amarilla {
+            background: linear-gradient(to right, #FFCC00, #FFD700);
+            flex: 1.5;
+        }
+        .franja-azul {
+            background: linear-gradient(to right, #0033A0, #0044CC);
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .franja-roja {
+            background: linear-gradient(to right, #C8102E, #D02040);
+            flex: 1;
+        }
+        h1 {
+            color: #fff;
+            text-align: center;
+            margin: 0;
+            font-size: 2.2em;
+            font-weight: 300;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            position: relative;
+            z-index: 1;
+        }
+        .decorative-line {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 2px;
+            background: #fff;
+            border-radius: 1px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        .card {
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            padding: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        h2 {
+            color: #0033A0;
+            margin-top: 0;
+            font-size: 1.8em;
+            font-weight: 400;
+            display: flex;
+            align-items: center;
+        }
+        h2::before {
+            content: attr(data-icon);
+            margin-right: 10px;
+            font-size: 1.5em;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        .image-card {
+    text-align: center; 
+    margin: 20px 0;     
+    padding: 0;         
+    background-color: transparent;  
+    border: none;       
+    border-radius: 0;   
+    font-style: normal; 
+    color: inherit;     
+    box-shadow: none;   
+        }
+        /* Trivia */
+        .question-card {
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin-bottom: 15px;
+            padding: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .question-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+        }
+        .option {
+            margin: 5px 0;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            padding: 5px;
+            border-radius: 6px;
+        }
+        .option:hover {
+            background-color: #f0f0f0;
+        }
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+        #verify-btn {
+            background: linear-gradient(135deg, #FFCC00, #FFD700);
+            color: #000;
+            border: none;
+            padding: 12px 25px;
+            cursor: pointer;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        #verify-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        #score {
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #0033A0;
+            transition: color 0.3s ease;
+        }
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container {
+                padding: 0 10px;
+            }
+            .card {
+                padding: 15px;
+            }
+            header {
+                height: 140px;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+        }
+        .image-card img {
+    max-width: 80%; 
+    height: auto;     
+    display: block;   
+    margin: 0 auto;   
+    border-radius: 8px; 
+         }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="franja-amarilla"></div>
+        <div class="franja-azul">
+            <h1>Cultura e Historia del Ecuador</h1>
+        </div>
+        <div class="franja-roja"></div>
+    </header>
+
+    <div class="container">
+        <section class="card" id="introduccion">
+            <h2>Introducción</h2>
+            <p>El Ecuador es un país ubicado en la costa noroccidental de América del Sur, conocido por su diversidad cultural y natural.</p>
+            <ul>
+                <li>Limita con Colombia al norte, Perú al sur y este, y el Océano Pacífico al oeste.</li>
+                <li>Su importancia cultural radica en ser un cruce de caminos entre culturas indígenas, africanas, europeas y asiáticas.</li>
+                <li>Esto lo hace un país multicultural y diverso.</li>
+            </ul>
+            <p>Además de su riqueza natural, Ecuador alberga una gran variedad de ecosistemas, desde las playas del Pacífico hasta las cumbres nevadas de los Andes y la densa selva amazónica. Esta diversidad geográfica ha influido directamente en su cultura, fomentando tradiciones únicas y una herencia histórica rica en influencias. El país es hogar de numerosos pueblos indígenas que han preservado sus lenguas y costumbres a lo largo de los siglos, contribuyendo a un mosaico cultural vibrante.</p>
+            <div class="image-card"><img src="img/mapa.jpg" alt="Mapa del Ecuador destacando su ubicación geográfica"></div>
+        </section>
+
+        <section class="card" id="cultura">
+            <h2>Cultura del Ecuador</h2>
+            <p>El Ecuador se divide en cuatro regiones naturales:</p>
+            <ul>
+                <li><strong>Costa:</strong> Con playas y ciudades como Guayaquil.</li>
+                <li><strong>Sierra:</strong> Con las majestuosas montañas de los Andes y Quito.</li>
+                <li><strong>Amazonía:</strong> Selva tropical rica en biodiversidad.</li>
+                <li><strong>Galápagos:</strong> Islas únicas con especies endémicas.</li>
+            </ul>
+            <p>Tradiciones y festividades importantes:</p>
+            <ul>
+                <li>Día de los Difuntos.</li>
+                <li>Fiesta de la Virgen del Cisne.</li>
+                <li>Inti Raymi.</li>
+            </ul>
+            <p>Gastronomía típica:</p>
+            <ul>
+                <li>Ceviche.</li>
+                <li>Llapingacho.</li>
+                <li>Hornado.</li>
+            </ul>
+            <p>Música, danzas y vestimenta:</p>
+            <ul>
+                <li>Música: Pasillo, yaraví, sanjuanito.</li>
+                <li>Vestimenta: Sombrero de paja toquilla, vestimenta afroecuatoriana (Costa), anaco, polleras bordadas y poncho andino (Sierra).</li>
+            </ul>
+            <p>Cada región del Ecuador contribuye con elementos únicos a su cultura. En la Costa, por ejemplo, se destacan las tradiciones afroecuatorianas, con ritmos como el currulao y el bomba. La Sierra, por su parte, es cuna de festivales como el Yamor, que combina elementos indígenas y católicos. La Amazonía ofrece una rica herencia de pueblos originarios con artesanías y conocimientos ancestrales sobre la naturaleza, mientras que las Galápagos inspiran una cultura enfocada en la conservación y el ecoturismo. Esta diversidad se refleja también en la gastronomía, donde platos como el encebollado o el cangrejo en la Costa contrastan con el cuy asado en la Sierra.</p>
+            <div class="image-card"><img src="img/danza.jpg" alt="Danzas tradicionales ecuatorianas"></div>
+        </section>
+
+        <section class="card" id="historia">
+            <h2>Historia del Ecuador</h2>
+            <p>Culturas precolombinas:</p>
+            <ul>
+                <li>Incas.</li>
+                <li>Caranquis.</li>
+                <li>Valdivia.</li>
+            </ul>
+            <p>Conquista española:</p>
+            <ul>
+                <li>Comenzó en 1532 con Francisco Pizarro.</li>
+            </ul>
+            <p>Proceso de independencia:</p>
+            <ul>
+                <li>Declarada el 10 de agosto de 1809 en Quito.</li>
+                <li>Consolidada el 24 de mayo de 1822 con la Batalla de Pichincha.</li>
+            </ul>
+            <p>Fundación de la República:</p>
+            <ul>
+                <li>En 1830, con figuras como Simón Bolívar y Antonio José de Sucre.</li>
+                <li>Esta historia forma la identidad nacional, basada en la lucha por la libertad y la diversidad.</li>
+            </ul>
+            <p>Antes de la llegada de los españoles, el territorio ecuatoriano estaba habitado por diversas culturas indígenas, como los Quitus en la Sierra y los Mantas en la Costa, quienes desarrollaron avanzadas técnicas agrícolas y arquitectónicas. La conquista española trajo consigo la imposición de un sistema colonial que fusionó elementos europeos con las tradiciones locales, dando origen a la mestizaje cultural. Durante la independencia, Ecuador formó parte inicialmente de la Gran Colombia, pero se separó en 1830 para formar su propia república. A lo largo del siglo XIX y XX, el país enfrentó conflictos internos y externos, incluyendo guerras con Perú, que fortalecieron su sentido de identidad nacional y su compromiso con la soberanía.</p>
+            <div class="image-card"><img src="img/monumento.jpg" alt="Monumento a la Independencia en Quito"></div>
+        </section>
+
+        <section class="card" id="reflexion">
+            <h2>Reflexión Cultural</h2>
+            <p>Conservar la cultura y la historia es esencial para mantener la identidad nacional.</p>
+            <ul>
+                <li>En la actualidad, muchos jóvenes pierden interés debido a la globalización y las redes sociales.</li>
+                <li>Para fortalecerla, se proponen actividades como:</li>
+                <ul>
+                    <li>Participar en festivales tradicionales.</li>
+                    <li>Aprender idiomas indígenas.</li>
+                    <li>Apoyar el turismo cultural sostenible.</li>
+                </ul>
+            </ul>
+            <p>La preservación de la cultura ecuatoriana no solo implica mantener tradiciones vivas, sino también adaptarlas a los desafíos modernos. La influencia de la globalización puede diluir costumbres ancestrales, por lo que es crucial promover la educación intercultural desde temprana edad. Iniciativas como talleres de artesanías, programas de radio comunitarios y el uso de tecnologías digitales para difundir historias locales pueden ayudar a revitalizar el interés. Además, el gobierno y las comunidades deben trabajar juntos para proteger sitios históricos y fomentar el orgullo nacional, asegurando que las futuras generaciones valoren y continúen esta rica herencia.</p>
+        </section>
+
+        <section class="card" id="trivia">
+            <h2>Trivia Interactiva</h2>
+            <p>Responde las siguientes preguntas sobre la cultura e historia del Ecuador. Selecciona una opción por pregunta y presiona "Verificar respuestas" al final.</p>
+            
+            <div class="question-card">
+                <p><strong>1. ¿Cuál es la capital del Ecuador?</strong></p>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q1" value="a"> Quito</label>
+                    <label class="option"><input type="radio" name="q1" value="b"> Guayaquil</label>
+                    <label class="option"><input type="radio" name="q1" value="c"> Cuenca</label>
+                    <label class="option"><input type="radio" name="q1" value="d"> Loja</label>
+                </div>
+            </div>
+            
+            <div class="question-card">
+                <p><strong>2. ¿Qué región del Ecuador incluye las Islas Galápagos?</strong></p>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q2" value="a"> Costa</label>
+                    <label class="option"><input type="radio" name="q2" value="b"> Sierra</label>
+                    <label class="option"><input type="radio" name="q2" value="c"> Amazonía</label>
+                    <label class="option"><input type="radio" name="q2" value="d"> Galápagos (región insular)</label>
+                </div>
+            </div>
+            
+            <div class="question-card">
+                <p><strong>3. ¿Cuál es un plato típico de la gastronomía ecuatoriana?</strong></p>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q3" value="a"> Ceviche</label>
+                    <label class="option"><input type="radio" name="q3" value="b"> Paella</label>
+                    <label class="option"><input type="radio" name="q3" value="c"> Sushi</label>
+                    <label class="option"><input type="radio" name="q3" value="d"> Pizza</label>
+                </div>
+            </div>
+            
+            <div class="question-card">
+                <p><strong>4. ¿Qué danza tradicional es común en las fiestas ecuatorianas?</strong></p>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q4" value="a"> Tango</label>
+                    <label class="option"><input type="radio" name="q4" value="b"> Sanjuanito</label>
+                    <label class="option"><input type="radio" name="q4" value="c"> Salsa</label>
+                    <label class="option"><input type="radio" name="q4" value="d"> Flamenco</label>
+                </div>
+            </div>
+            
+            <div class="question-card">
+                <p><strong>5. ¿En qué año se declaró la independencia del Ecuador?</strong></p>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q5" value="a"> 1809</label>
+                    <label class="option"><input type="radio" name="q5" value="b"> 1822</label>
+                    <label class="option"><input type="radio" name="q5" value="c"> 1830</label>
+                    <label class="option"><input type="radio" name="q5" value="d"> 1532</label>
+                </div>
+            </div>
+            
+            <div class="question-card">
+                <p><strong>6. ¿Qué cultura precolombina habitó la región de los Andes en Ecuador?</strong></p>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q6" value="a"> Aztecas</label>
+                    <label class="option"><input type="radio" name="q6" value="b"> Incas</label>
+                    <label class="option"><input type="radio" name="q6" value="c"> Mayas</label>
+                    <label class="option"><input type="radio" name="q6" value="d"> Olmecas</label>
+                </div>
+            </div>
+            
+            <div class="question-card">
+                <p><strong>7. ¿Cuál es una festividad importante en Ecuador relacionada con la Virgen?</strong></p>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q7" value="a"> Día de la Madre</label>
+                    <label class="option"><input type="radio" name="q7" value="b"> Virgen del Cisne</label>
+                    <label class="option"><input type="radio" name="q7" value="c"> Navidad</label>
+                    <label class="option"><input type="radio" name="q7" value="d"> Año Nuevo</label>
+                </div>
+            </div>
+            
+            <div class="question-card">
+                <p><strong>8. ¿Qué océano baña las costas del Ecuador?</strong></p>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q8" value="a"> Atlántico</label>
+                    <label class="option"><input type="radio" name="q8" value="b"> Índico</label>
+                    <label class="option"><input type="radio" name="q8" value="c"> Pacífico</label>
+                    <label class="option"><input type="radio" name="q8" value="d"> Ártico</label>
+                </div>
+            </div>
+            
+            <div class="question-card">
+                <p><strong>9. ¿Qué líder independentista es clave en la historia del Ecuador?</strong></p>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q9" value="a"> Francisco Pizarro</label>
+                    <label class="option"><input type="radio" name="q9" value="b"> Simón Bolívar</label>
+                    <label class="option"><input type="radio" name="q9" value="c"> Cristóbal Colón</label>
+                    <label class="option"><input type="radio" name="q9" value="d"> Hernán Cortés</label>
+                </div>
+            </div>
+            
+            <div class="question-card">
+                <p><strong>10. ¿Qué sombrero es típico de la vestimenta ecuatoriana?</strong></p>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q10" value="a"> Sombrero de cowboy</label>
+                    <label class="option"><input type="radio" name="q10" value="b"> Sombrero de paja toquilla</label>
+                    <label class="option"><input type="radio" name="q10" value="c"> Sombrero fedora</label>
+                    <label class="option"><input type="radio" name="q10" value="d"> Sombrero de copa</label>
+                </div>
+            </div>
+            
+            <div class="question-card">
+                <p><strong>11. ¿Cuál es el volcán más alto del Ecuador?</strong></p>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q11" value="a"> Cotopaxi</label>
+                    <label class="option"><input type="radio" name="q11" value="b"> Chimborazo</label>
+                    <label class="option"><input type="radio" name="q11" value="c"> Pichincha</label>
+                    <label class="option"><input type="radio" name="q11" value="d"> Tungurahua</label>
+                </div>
+            </div>
+            
+            <div class="question-card">
+                <p><strong>12. ¿Qué río es el más largo del Ecuador?</strong></p>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q12" value="a"> Guayas</label>
+                    <label class="option"><input type="radio" name="q12" value="b"> Napo</label>
+                    <label class="option"><input type="radio" name="q12" value="c"> Pastaza</label>
+                    <label class="option"><input type="radio" name="q12" value="d"> Santiago</label>
+                </div>
+            </div>
+            
+            <div class="question-card">
+                <p><strong>13. ¿Cuál es la moneda oficial del Ecuador?</strong></p>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q13" value="a"> Peso</label>
+                    <label class="option"><input type="radio" name="q13" value="b"> Dólar estadounidense</label>
+                    <label class="option"><input type="radio" name="q13" value="c"> Sol</label>
+                    <label class="option"><input type="radio" name="q13" value="d"> Bolívar</label>
+                </div>
+            </div>
+            
+            <div class="question-card">
+                <p><strong>14. ¿Qué famoso naturalista visitó las Galápagos y influyó en la teoría de la evolución?</strong></p>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q14" value="a"> Alexander von Humboldt</label>
+                    <label class="option"><input type="radio" name="q14" value="b"> Charles Darwin</label>
+                    <label class="option"><input type="radio" name="q14" value="c"> Alfred Russel Wallace</label>
+                    <label class="option"><input type="radio" name="q14" value="d"> Gregor Mendel</label>
+                </div>
+            </div>
+            
+            <div class="question-card">
+                <p><strong>15. ¿Cuál es una bebida típica ecuatoriana hecha de maíz?</strong></p>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q15" value="a"> Chicha</label>
+                    <label class="option"><input type="radio" name="q15" value="b"> Avena</label>
+                    <label class="option"><input type="radio" name="q15" value="c"> Horchata</label>
+                    <label class="option"><input type="radio" name="q15" value="d"> Té</label>
+                </div>
+            </div>
+            
+            <div class="question-card">
+                <p><strong>16. ¿Qué ciudad ecuatoriana es conocida como la "Ciudad Blanca"?</strong></p>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q16" value="a"> Quito</label>
+                    <label class="option"><input type="radio" name="q16" value="b"> Cuenca</label>
+                    <label class="option"><input type="radio" name="q16" value="c"> Loja</label>
+                    <label class="option"><input type="radio" name="q16" value="d"> Ambato</label>
+                </div>
+            </div>
+            
+            <div class="question-card">
+                <p><strong>17. ¿Qué instrumento musical es típico de la música andina ecuatoriana?</strong></p>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q17" value="a"> Guitarra</label>
+                    <label class="option"><input type="radio" name="q17" value="b"> Charango</label>
+                    <label class="option"><input type="radio" name="q17" value="c"> Piano</label>
+                    <label class="option"><input type="radio" name="q17" value="d"> Violín</label>
+                </div>
+            </div>
+            
+            <div class="question-card">
+                <p><strong>18. ¿En qué año Ecuador se unió a la OPEP?</strong></p>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q18" value="a"> 1973</label>
+                    <label class="option"><input type="radio" name="q18" value="b"> 1980</label>
+                    <label class="option"><input type="radio" name="q18" value="c"> 1990</label>
+                    <label class="option"><input type="radio" name="q18" value="d"> 2000</label>
+                </div>
+            </div>
+            
+            <div class="question-card">
+                <p><strong>19. ¿Cuál es el parque nacional más grande del Ecuador?</strong></p>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q19" value="a"> Yasuní</label>
+                    <label class="option"><input type="radio" name="q19" value="b"> Cotopaxi</label>
+                    <label class="option"><input type="radio" name="q19" value="c"> Sangay</label>
+                    <label class="option"><input type="radio" name="q19" value="d"> Galápagos</label>
+                </div>
+            </div>
+            
+            <div class="question-card">
+                <p><strong>20. ¿Cuál es la isla más grande de las Galápagos?</strong></p>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q20" value="a"> Isabela</label>
+                    <label class="option"><input type="radio" name="q20" value="b"> Santa Cruz</label>
+                    <label class="option"><input type="radio" name="q20" value="c"> San Cristóbal</label>
+                    <label class="option"><input type="radio" name="q20" value="d"> Floreana</label>
+                </div>
+            </div>
+            
+            <button id="verify-btn">Verificar respuestas</button>
+            <div id="score"></div>
+        </section>
+    </div>
+
+    <script>
+        // Definir las respuestas correctas para las 20 preguntas
+        const correctAnswers = {
+            q1: 'a', // Quito
+            q2: 'd', // Galápagos
+            q3: 'a', // Ceviche
+            q4: 'b', // Sanjuanito
+            q5: 'a', // 1809
+            q6: 'b', // Incas
+            q7: 'b', // Virgen del Cisne
+            q8: 'c', // Pacífico
+            q9: 'b', // Simón Bolívar
+            q10: 'b', // Sombrero de paja toquilla
+            q11: 'b', // Chimborazo
+            q12: 'b', // Napo
+            q13: 'b', // Dólar estadounidense
+            q14: 'b', // Charles Darwin
+            q15: 'a', // Chicha
+            q16: 'b', // Cuenca
+            q17: 'b', // Charango
+            q18: 'a', // 1973
+            q19: 'a', // Yasuní
+            q20: 'a'  // Isabela
+        };
+
+        // Función para verificar las respuestas al hacer clic en el botón
+        document.getElementById('verify-btn').addEventListener('click', function() {
+            let score = 0; // Inicializar el puntaje
+            const questions = document.querySelectorAll('.question-card'); // Obtener todas las preguntas (ahora 20)
+            
+            // Iterar sobre cada pregunta
+            questions.forEach((question, index) => {
+                const questionName = `q${index + 1}`; // Nombre de la pregunta (q1 a q20)
+                const selected = document.querySelector(`input[name="${questionName}"]:checked`); // Opción seleccionada
+                const options = question.querySelectorAll('.option'); // Todas las opciones de la pregunta
+                
+                // Resetear colores de las opciones
+                options.forEach(option => {
+                    option.style.color = '';
+                });
+                
+                if (selected) {
+                    if (selected.value === correctAnswers[questionName]) {
+                        // Respuesta correcta: color verde
+                        selected.parentElement.style.color = 'green';
+                        score++; // Incrementar puntaje
+                    } else {
+                        // Respuesta incorrecta: color rojo
+                        selected.parentElement.style.color = 'red';
+                        // Marcar la correcta en verde
+                        options.forEach(option => {
+                            const input = option.querySelector('input');
+                            if (input.value === correctAnswers[questionName]) {
+                                option.style.color = 'green';
+                            }
+                        });
+                    }
+                }
+            });
+            
+            // Mostrar el puntaje final sobre 20
+            document.getElementById('score').textContent = `Puntaje: ${score} / 20`;
+        });
+    </script>
+</body>
+</html>
